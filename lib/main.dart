@@ -1,3 +1,7 @@
+import 'package:demo1/page/account_page.dart';
+import 'package:demo1/page/chat_page.dart';
+import 'package:demo1/page/home_page.dart';
+import 'package:demo1/page/property_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -38,6 +42,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -54,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Timer(
         const Duration(seconds: 3),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) =>const SecondScreenPage())));
+            context, MaterialPageRoute(builder: (context) =>const BottomNavigationController())));
   }
 
   @override
@@ -64,6 +69,57 @@ class _MyHomePageState extends State<MyHomePage> {
         child: FlutterLogo(size: MediaQuery.of(context).size.height));
   }
 }
+
+
+
+class BottomNavigationController extends StatefulWidget {
+  const BottomNavigationController({Key? key}) : super(key: key);
+
+  @override
+  BottomNavigationControllerState createState() =>
+      BottomNavigationControllerState();
+}
+
+class BottomNavigationControllerState
+    extends State<BottomNavigationController> {
+  //目前選擇頁索引值
+  int _currentIndex = 0; //預設值
+  final pages = [const HomePage(), const ChatPage(), const AccountPage(),const PropertyPage()];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const GetAppBarWidget(),
+      body: pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label:'首頁'),
+          BottomNavigationBarItem(icon: Icon(Icons.chat),  label:'BOX'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle),  label:'交易'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_balance),  label:'資產'),
+        ],
+        currentIndex: _currentIndex, //目前選擇頁索引值
+        fixedColor: Colors.blue, //選擇頁顏色
+        onTap: _onItemClick, //BottomNavigationBar 按下處理事件
+      ),
+    );
+  }
+
+  //BottomNavigationBar 按下處理事件，更新設定當下索引值
+  void _onItemClick(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+}
+
+
+
+
+
+
+
 
 class SecondScreenPage extends StatefulWidget {
   const SecondScreenPage({Key? key}) : super(key: key);
