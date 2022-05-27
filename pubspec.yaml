@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.0.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,6 +70,16 @@ flutter:
     - assets/eth.png
     - assets/trx.png
     - assets/uni.png
+    - assets/game1.png
+    - assets/game2.png
+    - assets/game3.png
+    - assets/game4.png
+    - assets/game5.png
+    - assets/game6.png
+    - assets/game7.png
+    - assets/game8.png
+    - assets/game9.png
+    - assets/game10.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

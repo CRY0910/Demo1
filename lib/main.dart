@@ -1,5 +1,6 @@
-import 'package:demo1/page/account_page.dart';
-import 'package:demo1/page/chat_page.dart';
+import 'package:demo1/page/detail_page.dart';
+import 'package:demo1/page/trade_page.dart';
+import 'package:demo1/page/box_page.dart';
 import 'package:demo1/page/home_page.dart';
 import 'package:demo1/page/property_page.dart';
 import 'package:flutter/material.dart';
@@ -32,10 +33,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Demo',
       theme: ThemeData(
         primarySwatch: white,
       ),
+
       home: const MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -84,19 +86,19 @@ class BottomNavigationControllerState
     extends State<BottomNavigationController> {
   //目前選擇頁索引值
   int _currentIndex = 0; //預設值
-  final pages = [const HomePage(), const ChatPage(), const AccountPage(),const PropertyPage()];
+  final pages = [const HomePage(), const BoxPage(), const TradePage(), PropertyPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const GetAppBarWidget(),
+      //appBar: const GetAppBarWidget(),
       body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label:'首頁'),
           BottomNavigationBarItem(icon: Icon(Icons.chat),  label:'BOX'),
-          BottomNavigationBarItem(icon: Icon(Icons.account_circle),  label:'交易'),
+          BottomNavigationBarItem(icon: Icon(Icons.add_business),  label:'交易'),
           BottomNavigationBarItem(icon: Icon(Icons.account_balance),  label:'資產'),
         ],
         currentIndex: _currentIndex, //目前選擇頁索引值
@@ -207,7 +209,7 @@ class GetAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     // TODO: implement build
     return AppBar(
       centerTitle: true,
-      title:  const Text("XXX"),
+      title:  const Text("BOX"),
       elevation: 0.0, //shade
       actions: [
         IconButton(

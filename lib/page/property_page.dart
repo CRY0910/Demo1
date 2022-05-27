@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class PropertyPage extends StatelessWidget {
   const PropertyPage({Key? key}) : super(key: key);
@@ -6,7 +6,7 @@ class PropertyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text("聊天室頁"),
+      child: Text("交易頁"),
     );
   }
 }
